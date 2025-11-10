@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="fa" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه چای ایرانی</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f5f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+    background: linear-gradient(to right, #2d5016, #4a7c2a);
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.header-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.header-text {
+    margin-right: 20px; 
+    text-align: right; 
+}
+
+.header-text h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #f1e9c9;
+    align-items: end;
+}
+
+.header-text p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 600px;
+    text-align: justify;
+    text-align-last: right;
+}
+        
+        main {
+            padding: 40px 0;
+        }
+        
+        .hero-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .hero-image {
+            flex: 1;
+            min-width: 20px;
+           border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .hero-image img {
+            width: 650px;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            border-radius: 12px;
+        }
+        
+        .hero-image:hover img {
+            transform: scale(1.03);
+        }
+        
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .hero-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2d5016;
+            border-right: 5px solid #4a7c2a;
+            padding-right: 15px;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background-color: #4a7c2a;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: #a52a2a;
+            color: white;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: #4a7c2a;
+            border: 2px solid #4a7c2a;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        
+        .price-btn {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .price-btn:hover {
+            background-color: green;
+            transform: translateY(-2px);
+        }
+        
+        .products-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2d5016;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background-color: #4a7c2a;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eaeaea;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: #2d5016;
+            font-size: 1.2rem;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: #a52a2a;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .product-rating {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+        
+        .table-section {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgb(179, 171, 171);
+        }
+        
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px white;
+            color: green;
+        }
+        
+        .custom-table th, .custom-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 2px solid green;
+        }
+        
+        .custom-table th {
+            background-color: white;
+            color: red;
+            font-weight: bold;
+        }
+        
+        .custom-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .custom-table tr:hover {
+            background-color: #f1f8e9;
+        }
+        
+        .media-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .video-container video{
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .video-container video{
+            width: 700px;
+            height: 400px;
+            display: block;
+            border-radius: 10px;
+        }
+        
+        footer {
+            background: linear-gradient(to right, #2d5016, #4a7c2a);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        
+        .footer-logo {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            background-color: white;
+            padding: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-logo h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #f1e9c9;
+        }
+        
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: #f1e9c9;
+            border-right: 3px solid #f1e9c9;
+            padding-right: 10px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(-5px);
+        }
+        
+        .footer-text {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-text h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: #f1e9c9;
+            border-right: 3px solid #f1e9c9;
+            padding-right: 10px;
+        }
+        
+        .footer-text p {
+            margin-bottom: 12px;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: white;
+            color: #4a7c2a;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-text {
+                margin-right: 0;
+                margin-top: 15px;
+            }
+            
+            .hero-section, .media-section {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-logo, .footer-links, .footer-text {
+                margin-bottom: 30px;
+            }
+            
+            .footer-links h3, .footer-text h3 {
+                border-right: none;
+                border-bottom: 3px solid #f1e9c9;
+                padding-right: 0;
+                padding-bottom: 10px;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-logo">
+                    <a href="" target="_blank">
+                        <img src="./لوگو چای.jpg" alt="لوگوی چای ایران">
+                    </a>
+                </div>
+                <div class="header-text">
+                    <h1>فروشگاه چای ایران</h1>
+                    <p>با بیش از نیم قرن تجربه در زمینه تولید و عرضه بهترین چای‌های ایرانی و خارجی ما کیفیت و اصالت را به شما هدیه می‌دهیم</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <div class="hero-image">
+                <a href="" target="_blank">
+                    <img src="./images1.jpeg" alt="انواع چای ایرانی">
+                </a>
+            </div>
+            <div class="hero-content">
+                <h2>بهترین چای‌های ایرانی را از ما بخواهید</h2>
+                <p>چای ایرانی با عطر و طعم بی‌نظیرش، تجربه‌ای لذت‌بخش از نوشیدن یک دمنوش اصیل را برای شما به ارمغان می‌آورد </p>
+                <div class="button-group">
+                    <a href="#" class="btn btn-primary">
+                         سفارش آنلاین
+                    </a>
+                    <a href="#" class="btn btn-secondary">
+                         محصولات ویژه
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <h2 class="section-title">پرفروش‌ترین محصولات</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <a href="" target="_blank">
+                            <img src="./image 3.jpeg" alt="چای سیاه ممتاز">
+                        </a>
+                    </div>
+                    <div class="product-info">
+                        <h3>چای سیاه ممتاز</h3>
+                        <p>چای سیاه درجه یک با عطر بی‌نظیر</p>
+                        <button class="price-btn" >
+                            <i class=""></i> 155.000 تومان
+                        </button>
+                    </div>
+                </div>
+                
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <a href="" target="_blank">
+                            <img src="./image2.jpeg" alt="چای سبز ارگانیک">
+                        </a>
+                    </div>
+                    <div class="product-info">
+                        <h3>چای سبز ارگانیک</h3>
+                        <p>چای سبز کاملا ارگانیک و سالم</p>
+                        <button class="price-btn" >
+                            <i class=""></i> 180.000 تومان
+                        </button>
+                    </div>
+                </div>
+                
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <a href="" target="_blank">
+                            <img src="./image4.jpeg" alt="چای اولانگ">
+                        </a>
+                    </div>
+                    <div class="product-info">
+                        <h3>چای اولانگ</h3>
+                        <p>چای اولانگ با طعمی ملس و دلنشین</p>
+                        <button class="price-btn" >
+                            <i class=""></i> 230.000 تومان
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="table-section">
+            <h2 class="section-title">جدول</h2>
+            <table class="custom-table">
+                <tr>
+                    <td rowspan="2">A</td>
+                    <td colspan="2">B</td>
+                    
+                    <td>D</td>
+                    <td>E</td>
+                </tr>
+                <tr>
+                    
+                    <td>G</td>
+                    <td>H</td>
+                    <td>I</td>
+                    <td>J</td>
+                </tr>
+                <tr>
+                    <td>K</td>
+                    <td>L</td>
+                    <td colspan="2">M</td>
+                    
+                    <td>O</td>
+                </tr>
+            </table>
+        </section>
+
+       
+        <section class="media-section">
+            <div class="video-container">
+                <video controls poster="">
+                    <source src="./694bc64ea8ac211fbcd7b1b1a3ead68265028498-240p.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div>
+                <audio src="./Chaei Net(1)-Aval.mp3" controls preload="none"></audio>
+            </div>
+        </section>
+    </main>
+
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="" target="_blank">
+                        <img src="./لوگو چای.jpg" alt="لوگوی چای ایران">
+                    </a>
+                </div>
+                <div class="footer-links">
+                    <h3>لیست لینک‌های مفید</h3>
+                    <ul>
+                        <li><a href="#"><i class=""></i>محصول اصلی</a></li>
+                        <li><a href="#"><i class=""></i> درباره ما</a></li>
+                        <li><a href="#"><i class=""></i>  محصولات قابل فروش</a></li>
+                    </ul>
+                </div>
+                <div class="footer-text">
+                    <h3>راه‌های ارتباطی</h3>
+                    <p> آدرس: لاهیجان</p>
+                    <p> تلفن: 11111111111</p>
+                    <p> name@gmail.com :ایمیل</p>
+                    <p> ساعت کاری: ۸ صبح تا ۸ شب</p>
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
